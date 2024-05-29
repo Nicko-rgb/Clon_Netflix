@@ -1,0 +1,70 @@
+.registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  box-shadow: 0 0 5px rgb(148, 12, 12);
+  backdrop-filter: blur(4px);
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.registro h2 {
+  color: red;
+  font-size: 30px;
+  margin: 0;
+}
+
+.registro div {
+  position: relative;
+}
+
+.registro input {
+  height: 35px;
+  width: 345px;
+  padding: 5px;
+  outline: none;
+  font-size: 17px;
+  color: white;
+  background-color: rgba(24, 22, 22, 0.13);
+  border: gray solid 1px;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.registro label {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  padding: 0 4px;
+  pointer-events: none;
+  backdrop-filter: blur(1px);
+  transition: all 0.2s ease;
+  font-size: 20px;
+  font-family: arial narrow;
+}
+
+input:not(:placeholder-shown)+label,
+input:focus+label {
+  top: -10px;
+  font-size: 17px;
+}
+
+.registro .comenzar {
+  text-decoration: none;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  border: none;
+  background: red;
+  color: white;
+  font-weight: bold;
+  font-family: calibri;
+  font-size: 20px;
+  height: 45px;
+  width: 150px;
+  cursor: pointer;
+}
