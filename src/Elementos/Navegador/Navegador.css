@@ -182,7 +182,7 @@ footer .opciones .aFinal{
     left: 60px;
     width: calc(100% - 60px);
     height: 100%;
-    background-color: rgb(66, 57, 58);
+    background-color: rgb(39, 37, 37);
     overflow-y: auto;
 }
 @media (max-width:1356px) {

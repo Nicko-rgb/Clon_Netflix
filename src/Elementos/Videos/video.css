@@ -1,4 +1,47 @@
 .videos {
+    display: flex;
+    flex-direction: column;
+}
+.videos .videoNuevo{
+    margin-top: -20px;
+    height: 75vh;
+    padding: 10px;
+    position: relative;
+}
+.videos .videoNuevo button{
+    position: absolute;
+    bottom: 120px;
+    left: 50px;
+    background: rgb(185, 14, 14);
+    border: none;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    font-family: calibri;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: flotar 1.5s linear infinite;
+}
+@keyframes flotar {
+    0% { transform: translateY(0px); }
+    50%{transform: translateY(10px);}
+
+}
+.videos .videoNuevo h2{
+    position: absolute;
+    color: white;
+    bottom: 100px;
+    right: 50px;
+    font-family: calibri;
+    font-weight: bold;
+    font-size: 40px;
+    transition: 0.3s ease;
+}
+
+.videos .videoBox{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
@@ -6,7 +49,6 @@
     overflow-y: auto;
     height: 100%;
 }
-
 .videos .datosVideo {
     border: gray solid 1px;
     border-radius: 10px;
@@ -19,7 +61,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transition: 0.3s ease;
 }
+.videos .datosVideo:hover{
+    transform: scale(1.05);
+}
+
 /* .videos .datosVideo h3, p{
     position: absolute;
 } */
@@ -30,18 +77,33 @@
 }
 
 @media (max-width: 1200px) {
-    .videos {
+    .videos .videoBox {
         grid-template-columns: repeat(3, 1fr);
         column-gap: 10px;
     }
 }
-@media (max-width: 800px) {
-    .videos {
+@media (max-width: 970px) {
+    .videos .videoBox {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
     .videos .datosVideo {
         margin: 0;
         height: 200px;
+    }
+    .videos .videoNuevo{
+        height: 40vh;
+        margin-top: 0;
+        position: relative;
+    }
+    .videos .videoNuevo h2{
+        top: -20px;
+        font-size: 30px;
+        left: 10px;
+    }
+    .videos .videoNuevo button{
+        position: absolute;
+        bottom: 90px;
+        left: calc(95% - 200px);
     }
 }

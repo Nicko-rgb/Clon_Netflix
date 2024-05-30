@@ -1,4 +1,4 @@
-import './Peliculas.css'
+import './Navegador.css'
 import { LuHome, LuUsers2 } from "react-icons/lu";
 import { FaRegUser, FaCog, FaRegHeart, FaSearch,FaUserCircle } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
@@ -6,11 +6,15 @@ import { ImExit } from "react-icons/im";
 import netZuiza from '../IMG/NetSuiza.png'
 import Videos from '../Videos/videos';
 
+import {Link } from 'react-router-dom';
+
 const Peliculas = () => {
     return (
         <div className="peliculas">
             <footer>
-                <img src={netZuiza} alt="netZuiza" className='logo'/>
+                <Link to='/browser' className='logo'>
+                    <img src={netZuiza} alt="netZuiza"/>
+                </Link>
                 <div className="buscador">
                     <div className="buscar">
                         <input type="text" />
@@ -19,13 +23,13 @@ const Peliculas = () => {
                         </button>
                     </div>
                     <div className="opciones">
-                        <a href="#" className='aInicio'>ACCION</a>
-                        <a href="#">TERROR</a>
-                        <a href="#">COMEDIA</a>
-                        <a href="#">ROMANCE</a>
+                        <Link to='/browser/accion' className='aInicio'>ACCION</Link>
+                        <Link to='/browser/terror'>TERROR</Link>
+                        <Link to='/browser/comedia'>COMEDIA</Link>
+                        <Link to='/browser/romance'>ROMANCE</Link>
                         <a href="#">AMOR</a>
                         <a href="#">DRAMA</a>
-                        <a href="#">FICCION</a>
+                        <Link to='/browser/ficcion'>FICCION</Link>
                         <a href="#">MUSICA</a>
                         <a href="#">FANTASIA</a>
                         <a href="#">DOCUMENTALES</a>
@@ -58,9 +62,9 @@ const Peliculas = () => {
                     <div className="conte-icon">
                         <MdInfoOutline className='icons' />
                     </div>
-                    <div className="conte-icon">
+                    <Link className="conte-icon" to='/'>
                         <ImExit className='icons' />
-                    </div>
+                    </Link>
                 </div>
                 <div class="menu-oculto">
                     <a href="#">Home</a>
@@ -69,7 +73,7 @@ const Peliculas = () => {
                     <a href="#">Tus gustos</a>
                     <a href="#">Configuracion</a>
                     <a href="#">Informacion</a>
-                    <a href="#">Cerrar</a>
+                    <Link to='/'>Cerrar</Link>
                 </div>
 
                 <div className="caja-peliculas">
