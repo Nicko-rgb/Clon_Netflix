@@ -25,7 +25,7 @@ const Peliculas = () => {
                     </div>
                     
                     <div className="opciones">
-                        <Link to='/browser/accion' className='aInicio'>NIXON</Link>
+                        <Link to='/browser/accion' className='aInicio'>ACCION</Link>
                         <Link to='/browser/terror'>TERROR</Link>
                         <Link to='/browser/comedia'>COMEDIA</Link>
                         <Link to='/browser/romance'>ROMANCE</Link>
