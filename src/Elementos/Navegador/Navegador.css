@@ -15,7 +15,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 0;
 }
+
 footer .logo{
     position: absolute;
     left: 2.5%;
@@ -24,6 +26,7 @@ footer .userIcon{
     color: white;
     position: absolute;
     right: 1.5%;
+    top: 10px;
     font-size: 35px;
 }
 
@@ -127,6 +130,10 @@ footer .opciones .aFinal{
     flex-direction: column;
     z-index: 2;
 }
+.contenedor .menuBar{
+    position: absolute;
+    display: none;
+}
 .left-container .conte-icon{
     display: flex;
     justify-content: center;
@@ -190,4 +197,43 @@ footer .opciones .aFinal{
         text-align: center;
         align-items: end;
     }
+}
+@media (max-width: 800px) {
+    .contenedor .menuBar{
+        display: grid;
+        position: absolute;
+        left: 5px;
+        top: -50px;
+        font-size: 42px;
+        color: white ;
+        cursor: pointer;
+        z-index: 1;
+    }
+    footer .logo{
+        position: absolute;
+        top: 5px;
+        width: 120px;
+    }
+    footer .logo img{
+        width: 100%;
+    }
+    footer .buscador .buscar{
+        position: absolute;
+        right: 60px;
+        top: 7px;
+    }
+    footer .buscador .opciones{
+        margin-top: 48px;
+    }
+    .peliculas .contenedor .left-container{
+        display: none;
+    }
+    .peliculas .contenedor .menu-oculto{
+        display: none;
+    }
+    .peliculas .contenedor .caja-peliculas{
+        left: 0;
+        width: 100%;
+    }
+
 }

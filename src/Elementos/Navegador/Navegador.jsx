@@ -2,6 +2,7 @@ import './Navegador.css'
 import { LuHome, LuUsers2 } from "react-icons/lu";
 import { FaRegUser, FaCog, FaRegHeart, FaSearch,FaUserCircle } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
+import { ImMenu } from "react-icons/im"
 import { ImExit } from "react-icons/im";
 import netZuiza from '../IMG/NetSuiza.png'
 import Videos from '../Videos/videos';
@@ -22,8 +23,9 @@ const Peliculas = () => {
                             <FaSearch className='icons'/>
                         </button>
                     </div>
+                    
                     <div className="opciones">
-                        <Link to='/browser/accion' className='aInicio'>ACCION</Link>
+                        <Link to='/browser/accion' className='aInicio'>NIXON</Link>
                         <Link to='/browser/terror'>TERROR</Link>
                         <Link to='/browser/comedia'>COMEDIA</Link>
                         <Link to='/browser/romance'>ROMANCE</Link>
@@ -43,6 +45,7 @@ const Peliculas = () => {
                 <FaUserCircle className='userIcon'/>
             </footer>
             <div className='contenedor'>
+                <ImMenu className='menuBar'/>
                 <div className="left-container">
                     <div className="conte-icon">
                         <LuHome className='icons' />
