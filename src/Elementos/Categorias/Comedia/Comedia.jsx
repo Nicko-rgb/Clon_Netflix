@@ -1,9 +1,14 @@
 import React from 'react'
+import Navegador from '../../Navegador/Navegador'
+import './comedia.css'
 
 const Comedia = () => {
     return (
-        <div>
-            <h1>COMEDIA PELIS</h1>
+        <div className='comedia'>
+            <Navegador />
+            <div className="container-pelis">
+                <h2>PELIS COMEDIA</h2>
+            </div>
         </div>
     )
 }

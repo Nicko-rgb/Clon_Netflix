@@ -1,12 +1,16 @@
 import './App.css';
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Principal from './Elementos/Inicio/Principal';
-import Peliculas from './Elementos/Navegador/Navegador';
-import NavAccion from './Elementos/Categorias/Accion/NavAccion'
-import NavTerror from './Elementos/Categorias/Terror/NavTerror';
-import NavComedia from './Elementos/Categorias/Comedia/NavComedia';
-import NavFiccion from './Elementos/Categorias/Ficcion/NavFiccion';
-import NavRomance from './Elementos/Categorias/Romance/NavRomance';
+import Banner from './Elementos/Banner/Banner';
+
+import Accion from './Elementos/Categorias/Accion/Accion';
+import Terror from './Elementos/Categorias/Terror/Terror';
+import Comedia from './Elementos/Categorias/Comedia/Comedia';
+import Romance from './Elementos/Categorias/Romance/Romance';
+import Anime from './Elementos/Categorias/Anime/Anime';
+import Drama from './Elementos/Categorias/Drama/Drama';
+import Ficcion from './Elementos/Categorias/Ficcion/Ficcion';
+import Musical from './Elementos/Categorias/Musical/Musical';
 function App() {
 
     return (
@@ -14,12 +18,15 @@ function App() {
             <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Principal />} />
-                <Route path="/browser" element={<Peliculas />} />
-                <Route path="/browser/accion" element={<NavAccion />} />
-                <Route path="/browser/terror" element={<NavTerror />} />
-                <Route path="/browser/comedia" element={<NavComedia />} />
-                <Route path="/browser/ficcion" element={<NavFiccion />} />
-                <Route path="/browser/romance" element={<NavRomance />} />
+                <Route path="/browser" element={<Banner />} />
+                <Route path="/browser/accion" element={<Accion />} />
+                <Route path="/browser/terror" element={<Terror />} />
+                <Route path="/browser/comedia" element={<Comedia />} />
+                <Route path="/browser/romance" element={<Romance />} />
+                <Route path="/browser/anime" element={<Anime />} />
+                <Route path="/browser/drama" element={<Drama />} />
+                <Route path="/browser/ficcion" element={<Ficcion />} />
+                <Route path="/browser/musical" element={<Musical />} />
 +            </Routes>
             </BrowserRouter>
         </div>

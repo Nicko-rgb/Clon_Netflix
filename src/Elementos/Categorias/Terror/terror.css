@@ -1,0 +1,9 @@
+.terror{
+    position: relative;
+}
+.terror .container-pelis {
+    position: absolute;
+    left: 60px;
+    top: 100px;
+    color: white;
+}

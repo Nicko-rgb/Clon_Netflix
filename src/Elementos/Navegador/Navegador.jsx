@@ -1,25 +1,23 @@
 import './Navegador.css'
 import { LuHome, LuUsers2 } from "react-icons/lu";
-import { FaRegUser, FaCog, FaRegHeart, FaSearch,FaUserCircle } from "react-icons/fa";
+import { FaRegUser, FaCog, FaRegHeart, FaSearch, FaUserCircle } from "react-icons/fa";
 import { MdInfoOutline } from "react-icons/md";
 import { ImExit } from "react-icons/im";
-import netZuiza from '../IMG/NetSuiza.png'
-import Videos from '../Videos/videos';
+import Logo from '../IMG/Logo.png'
+import { Link } from 'react-router-dom';
 
-import {Link } from 'react-router-dom';
-
-const Peliculas = () => {
+const Navegador = () => {
     return (
-        <div className="peliculas">
+        <div className="navegador">
             <footer>
                 <Link to='/browser' className='logo'>
-                    <img src={netZuiza} alt="netZuiza"/>
+                    <img src={Logo} alt="netZuiza" />
                 </Link>
                 <div className="buscador">
                     <div className="buscar">
                         <input type="text" />
                         <button className="conte-icon">
-                            <FaSearch className='icons'/>
+                            <FaSearch className='icons' />
                         </button>
                     </div>
                     <div className="opciones">
@@ -27,10 +25,10 @@ const Peliculas = () => {
                         <Link to='/browser/terror'>TERROR</Link>
                         <Link to='/browser/comedia'>COMEDIA</Link>
                         <Link to='/browser/romance'>ROMANCE</Link>
-                        <a href="#">AMOR</a>
-                        <a href="#">DRAMA</a>
+                        <Link to='/browser/anime'>ANIME</Link>
+                        <Link to='/browser/drama'>DRAMA</Link>
                         <Link to='/browser/ficcion'>FICCION</Link>
-                        <a href="#">MUSICA</a>
+                        <Link to='/browser/musical'>MUSICAL</Link>
                         <a href="#">FANTASIA</a>
                         <a href="#">DOCUMENTALES</a>
                         <a href="#">ROMANCE</a>
@@ -40,13 +38,13 @@ const Peliculas = () => {
                         <a href="#" className='aFinal'>ACCION</a>
                     </div>
                 </div>
-                <FaUserCircle className='userIcon'/>
+                <FaUserCircle className='userIcon' />
             </footer>
             <div className='contenedor'>
                 <div className="left-container">
-                    <div className="conte-icon">
+                    <Link className="conte-icon" to='/browser'>
                         <LuHome className='icons' />
-                    </div>
+                    </Link>
                     <div className="conte-icon">
                         <FaRegUser className='icons' />
                     </div>
@@ -67,7 +65,7 @@ const Peliculas = () => {
                     </Link>
                 </div>
                 <div class="menu-oculto">
-                    <a href="#">Home</a>
+                    <Link to='/browser'>Home</Link>
                     <a href="#">Cuenta</a>
                     <a href="#">Amigos</a>
                     <a href="#">Tus gustos</a>
@@ -75,15 +73,10 @@ const Peliculas = () => {
                     <a href="#">Informacion</a>
                     <Link to='/'>Cerrar</Link>
                 </div>
-
-                <div className="caja-peliculas">
-                    <Videos className="videos"/>
-                </div>
-
             </div>
 
         </div>
     )
 }
 
-export default Peliculas
+export default Navegador

@@ -1,15 +1,16 @@
 import React from 'react'
-import './ficcion.css'
+import './drama.css'
 import Navegador from '../../Navegador/Navegador'
-const Ficcion = () => {
+
+const Drama = () => {
     return (
-        <div className='ficcion'>
+        <div className='drama'>
             <Navegador />
             <div className="container-pelis">
-                <h1>PELICULA FICCION</h1>
+                <h1>DRAMA</h1>
             </div>
         </div>
     )
 }
 
-export default Ficcion
+export default Drama

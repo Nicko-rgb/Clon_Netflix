@@ -1,6 +1,6 @@
 import './Principal.css';
 import React, { useState } from 'react';
-import logoNet from '../IMG/NetSuiza.png';
+import Logo from '../IMG/Logo.png'
 import foto2 from '../IMG/foto2.jpg';
 import foto3 from '../IMG/foto3.jpg'
 import stranger from '../IMG/stranger.jpg'
@@ -23,7 +23,7 @@ function Principal() {
         <div className="App netflix">
             <div className="ini inicio1">
                 <nav>
-                    <img src={logoNet} title="NetSuiza" alt='Logo'></img>
+                    <img src={Logo} title="NetSuiza" alt='Logo'></img>
                     <div className="idiSesion">
                         <select id="opciones" name="opciones">
                             <option value="opcion1">Español</option>

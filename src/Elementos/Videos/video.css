@@ -66,6 +66,9 @@
 .videos .datosVideo:hover{
     transform: scale(1.05);
 }
+.videos .datosVideo h3{
+    color: white;
+}
 
 /* .videos .datosVideo h3, p{
     position: absolute;

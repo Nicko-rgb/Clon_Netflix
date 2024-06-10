@@ -30,7 +30,7 @@ const Videos = () => {
                         <h3>{video.nombre}</h3>
                         <p>{video.descripcion}</p>
                         <ReactPlayer
-                        className = 'verVideo'
+                            className='verVideo'
                             url={video.url}
                             controls={true}
                         />

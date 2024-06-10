@@ -1,0 +1,9 @@
+.musical{
+    position: relative;
+}
+.musical .container-pelis{
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    color: white;
+}
