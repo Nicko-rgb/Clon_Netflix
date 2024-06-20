@@ -7,3 +7,30 @@
     left: 60px;
     color: white;
 }
+.anime .box-pelis{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    column-gap: 10px;
+    overflow-y: auto;
+    height: 100%;
+}
+.anime .box-pelis .box{
+    border: gray solid 1px;
+    border-radius: 10px;
+    height: 300px;
+    overflow: hidden;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+.anime .box .verVideo{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}

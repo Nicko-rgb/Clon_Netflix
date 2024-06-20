@@ -108,14 +108,7 @@ footer .opciones .aInicio{
 footer .opciones .aFinal{
     margin-right: 10px;
 }
-.navegador .contenedor{
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    position: relative;
-    height: calc(100% - 100px);
-    margin-top: 100px;
-    z-index: 0;
-}
+
 
 .left-container {
     background: rgb(15, 15, 15);
@@ -200,9 +193,5 @@ footer .opciones .aFinal{
     }
     .menu-oculto{
         display: none;
-    }
-    .contenedor .caja-navegador{
-        left: 0;
-        width: 100%;
     }
 }

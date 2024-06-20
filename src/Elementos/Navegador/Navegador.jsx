@@ -40,39 +40,37 @@ const Navegador = () => {
                 </div>
                 <FaUserCircle className='userIcon' />
             </footer>
-            <div className='contenedor'>
-                <div className="left-container">
-                    <Link className="conte-icon" to='/browser'>
-                        <LuHome className='icons' />
-                    </Link>
-                    <div className="conte-icon">
-                        <FaRegUser className='icons' />
-                    </div>
-                    <div className="conte-icon">
-                        <LuUsers2 className='icons' />
-                    </div>
-                    <div className="conte-icon">
-                        <FaRegHeart className='icons' />
-                    </div>
-                    <div className="conte-icon">
-                        <FaCog className='icons' />
-                    </div>
-                    <div className="conte-icon">
-                        <MdInfoOutline className='icons' />
-                    </div>
-                    <Link className="conte-icon" to='/'>
-                        <ImExit className='icons' />
-                    </Link>
+            <div className="left-container">
+                <Link className="conte-icon" to='/browser'>
+                    <LuHome className='icons' />
+                </Link>
+                <div className="conte-icon">
+                    <FaRegUser className='icons' />
                 </div>
-                <div class="menu-oculto">
-                    <Link to='/browser'>Home</Link>
-                    <a href="#">Cuenta</a>
-                    <a href="#">Amigos</a>
-                    <a href="#">Tus gustos</a>
-                    <a href="#">Configuracion</a>
-                    <a href="#">Informacion</a>
-                    <Link to='/'>Cerrar</Link>
+                <div className="conte-icon">
+                    <LuUsers2 className='icons' />
                 </div>
+                <div className="conte-icon">
+                    <FaRegHeart className='icons' />
+                </div>
+                <div className="conte-icon">
+                    <FaCog className='icons' />
+                </div>
+                <div className="conte-icon">
+                    <MdInfoOutline className='icons' />
+                </div>
+                <Link className="conte-icon" to='/'>
+                    <ImExit className='icons' />
+                </Link>
+            </div>
+            <div class="menu-oculto">
+                <Link to='/browser'>Home</Link>
+                <a href="#">Cuenta</a>
+                <a href="#">Amigos</a>
+                <a href="#">Tus gustos</a>
+                <a href="#">Configuracion</a>
+                <a href="#">Informacion</a>
+                <Link to='/'>Cerrar</Link>
             </div>
 
         </div>

@@ -3,8 +3,8 @@
     flex-direction: column;
 }
 .videos .videoNuevo{
-    margin-top: -20px;
-    height: 75vh;
+    margin-top: 10px;
+    height: 70vh;
     padding: 10px;
     position: relative;
 }
