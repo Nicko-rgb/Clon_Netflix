@@ -265,7 +265,28 @@ app.delete('/api/users/:id', (req, res) => {
     });
 });
 
+// Ruta para obtener todos los videos
+app.get('/api/videos/cinehub', (req, res) => {
+    const query = 'SELECT * FROM Videos';
+    db.query(query, (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error al obtener los videos' });
+        }
+        res.json(results); // Enviar los resultados como respuesta
+    });
+});
 
+// Ruta para obtener videos por categoría
+app.get('/api/videos/cinehub/:categoria', (req, res) => {
+    const categoria = req.params.categoria; // Obtener la categoría de los parámetros de la URL
+    const query = 'SELECT * FROM Videos WHERE genero = ?'; // Filtrar por genero
+    db.query(query, [categoria], (err, results) => {
+        if (err) {
+            return res.status(500).json({ error: 'Error al obtener los videos' });
+        }
+        res.json(results); // Enviar los resultados como respuesta
+    });
+});
 
 // Iniciar el servidor
 app.listen(port, () => {

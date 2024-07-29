@@ -14,7 +14,6 @@ const Terror = () => {
                     {dataTerror.map(video => (
                         <div className="box">
                             <h4>{video.Nombre} </h4>
-                            <p>{video.descrpcion} </p>
                             <ReactPlayer 
                                 className="verVideo"
                                 url={video.url}

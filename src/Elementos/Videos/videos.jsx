@@ -17,7 +17,7 @@ const Videos = () => {
 
     // Código para desplazar por los videos
     const enlacessRef1 = useRef(null);
-    const enlacessRef2 = useRef(null);
+    // const enlacessRef2 = useRef(null);
 
     const scrollLeft = (ref) => {
         ref.current.scrollLeft -= 320;
@@ -76,35 +76,6 @@ const Videos = () => {
                         ))}
                     </div>
                     <button className="btn-scrol scroll-right" onClick={() => scrollRight(enlacessRef1)}>
-                        <FaChevronRight />
-                    </button>
-                </div>
-            </div>
-
-            <div className='videoFila'>
-                <h3 className='tipo'>ültimos 2024</h3>
-                <div className='videoContainer'>
-                    <button className="btn-scrol scroll-left" onClick={() => scrollLeft(enlacessRef2)}>
-                        <FaChevronLeft />
-                    </button>
-                    <div className='subFila' ref={enlacessRef2}>
-                        {videoData.map((video, index) => (
-                            <div className='sub' key={index}>
-                                <div className='datosVideo'>
-                                    <h3>{video.nombre}</h3>
-                                    <p>{video.descripcion}</p>
-                                    <ReactPlayer
-                                        className='vdo'
-                                        url={video.url}
-                                        controls={true}
-                                        width='100%'
-                                        height='100%'
-                                    />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <button className="btn-scrol scroll-right" onClick={() => scrollRight(enlacessRef2)}>
                         <FaChevronRight />
                     </button>
                 </div>
