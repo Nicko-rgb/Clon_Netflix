@@ -1,14 +1,20 @@
 .videos {
     display: flex;
     flex-direction: column;
+    width: calc(100vw - 80px);
+    padding-bottom: 50px;
+    z-index: 0;
 }
-.videos .videoNuevo{
+
+.videos .videoNuevo {
     margin-top: 10px;
     height: 70vh;
     padding: 10px;
     position: relative;
+    width: calc(100vw - 100px);
 }
-.videos .videoNuevo button{
+
+.videos .videoNuevo button {
     position: absolute;
     bottom: 120px;
     left: 50px;
@@ -25,12 +31,19 @@
     transition: 0.3s ease;
     animation: flotar 1.5s linear infinite;
 }
+
 @keyframes flotar {
-    0% { transform: translateY(0px); }
-    50%{transform: translateY(10px);}
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
 
 }
-.videos .videoNuevo h2{
+
+.videos .videoNuevo h2 {
     position: absolute;
     color: white;
     bottom: 100px;
@@ -41,72 +54,85 @@
     transition: 0.3s ease;
 }
 
-.videos .videoBox{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
-    column-gap: 10px;
-    overflow-y: auto;
-    height: 100%;
-}
-.videos .datosVideo {
-    border: gray solid 1px;
-    border-radius: 10px;
-    height: 300px;
-    overflow: hidden;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
+.videos .videoFila {
     display: flex;
     flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.videoFila .tipo {
+    font-family: calibri;
+    color: white;
+    font-size: 25px;
+    margin: 0;
+    margin-left: 20px;
+}
+
+.videoFila .videoContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.videoFila .videoContainer .btn-scrol {
+    position: absolute;
+    color: black;
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.58);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0,);
+    transition: background-color 0.2s ease-in-out;
 }
-.videos .datosVideo:hover{
-    transform: scale(1.05);
+
+.videoFila .videoContainer .scroll-left {
+    left: 1rem;
 }
-.videos .datosVideo h3{
+
+.videoFila .videoContainer .scroll-right {
+    right: 0.3rem;
+}
+
+.videoFila .subFila {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    transition: .5s ease;
+    scroll-behavior: smooth;
+    margin-top: -15px;
+}
+
+.videoFila .subFila::-webkit-scrollbar {
+    display: none;
+}
+
+.videoFila .subFila .sub .datosVideo {
+    width: 280px;
+    height: 230px;
+    padding: 10px;
+    box-shadow: 0 0 3px white;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .4s ease;
+}
+.videoFila .subFila .sub .datosVideo:hover{
+    box-shadow: 0 0 3px white;
+    transform: scale(1.04);
+}
+
+.videoFila .subFila .sub .datosVideo h3 {
     color: white;
-}
-
-/* .videos .datosVideo h3, p{
-    position: absolute;
-} */
-.videos .verVideo {
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
-}
-
-@media (max-width: 1200px) {
-    .videos .videoBox {
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 10px;
-    }
-}
-@media (max-width: 970px) {
-    .videos .videoBox {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    .videos .datosVideo {
-        margin: 0;
-        height: 200px;
-    }
-    .videos .videoNuevo{
-        height: 40vh;
-        margin-top: 0;
-        position: relative;
-    }
-    .videos .videoNuevo h2{
-        top: -20px;
-        font-size: 30px;
-        left: 10px;
-    }
-    .videos .videoNuevo button{
-        position: absolute;
-        bottom: 90px;
-        left: calc(95% - 200px);
-    }
+    text-align: center;
+    margin: 0;
 }

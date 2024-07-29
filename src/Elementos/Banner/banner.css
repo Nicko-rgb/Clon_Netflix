@@ -10,3 +10,6 @@
     top: 100px;
     z-index: 0;
 }
+.banner .navegador .buscador{
+    display: flex;
+}

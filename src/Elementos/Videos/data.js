@@ -59,43 +59,7 @@ const Videos = [
         nombre: "Video 10",
         url : "https://youtu.be/mR9t-MAsURo?si=yqEIr2gLt7HHHFEM",
         descripcion: "Video de humor"  
-    },
-    {
-        id: 11,
-        nombre: "Video 11",
-        url : "https://fb.watch/sojOrX8J7f/",
-        descripcion: "Video de novela"
-    },
-    {
-        id: 12,
-        nombre: "Godzilla y Kong el nuevo imperio (2024)",
-        url : "https://www.dropbox.com/scl/fi/vi8nv8ck073sse6bt0ckh/Godzilla-y-Kong-el-nuevo-imperio-2024.mkv?rlkey=btg3im9gld3wxgmyn2bs2zc5k&st=cpcua50o&",
-        descripcion: "Video de humor"  
-    },
-    {
-        id: 13,
-        nombre: "Mi video 13",
-        url : "https://fb.watch/sjndsrarer/",
-        descripcion: "Video de terror"
-    },
-    {
-        id: 14,
-        nombre: "Video 14",
-        url : "https://youtu.be/FAfxTvlq87s?si=osrrHEzTLeJ0fr-s",
-        descripcion: "Video de amor"
-    },
-    {
-        id: 15,
-        nombre: "Video 15",
-        url : "https://fb.watch/sjndsrarer/",
-        descripcion: "Video de chiste"
-    },
-    {
-        id: 16,
-        nombre: "Video 16",
-        url : "https://fb.watch/sojOrX8J7f/",
-        descripcion: "Video de Amor"
-    },
+    }
 ]
 
 export default Videos;

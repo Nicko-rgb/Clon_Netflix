@@ -1,7 +1,6 @@
-import React from 'react'
-import './banner.css'
-import Navegador from '../Navegador/Navegador'
-import Videos from '../Videos/videos'
+import './banner.css';
+import Navegador from '../Navegador/Navegador';
+import Videos from '../Videos/videos';
 
 const Banner = () => {
     return (
@@ -13,7 +12,7 @@ const Banner = () => {
                 <Videos />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Banner
+export default Banner;

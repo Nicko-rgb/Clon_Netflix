@@ -1,0 +1,132 @@
+.perfil{
+    position: relative;
+}
+.perfil .navegador{
+    z-index: 1;
+}
+.perfil .navegador .buscador{
+    display: none;
+}
+.perfil .navegador .for-perfil{
+    display: flex;
+}
+.perfil .navegador .for-perfil h2{
+    color: white;
+}
+.perfil .sub-perfil{
+    position: absolute;
+    top: 100px;
+    left: 60px;
+    color: white;
+    z-index: 0;
+    width: calc(100% - 60px);
+    height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.perfil .box{
+    position: relative;
+    box-shadow: 0 0 5px white;
+    border: rgb(40, 38, 38) solid 1px;
+    margin-top: 50px;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.perfil .iconP{
+    font-size: 45px;
+}
+.perfil .box h2{
+    margin: 0;
+}
+.perfil .box h2, p{
+    text-align: center;
+}
+.perfil .box .id{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 10px;
+}
+.perfil .box div{
+    margin-top: 20px;
+    display: flex;
+    gap: 13px;
+}.perfil .box button{
+    color: white;
+    border: none;
+    background: rgb(185, 14, 14);
+    padding: 7px 12px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.perfil .box .ico{
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+
+
+
+/*******************************/
+.perfil .edit-profile{
+    position: relative;
+    z-index: 9999;
+    color: white;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.559);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.perfil .edit-profile form{
+    margin-top: 10vh;
+    box-shadow: 0 0 5px aqua;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.edit-profile h2{
+    margin: 0;
+    text-align: center;
+}
+.edit-profile form input{
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: aqua solid 1px;
+    background: transparent;
+    color: white;
+    outline: none;
+    min-width: 230px;
+}
+.edit-profile form button{
+    border: none;
+    padding: 10px 0;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+.edit-profile form .btn1{
+    background-color: aqua;
+
+}
+.edit-profile form .btn2{
+    background-color: rgb(148, 101, 13);
+}
+.edit-profile .succes{
+    text-align: center;
+}
+.edit-profile .error{
+    color: red;
+}

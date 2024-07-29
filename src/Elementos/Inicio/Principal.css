@@ -1,269 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-  .App {
+.App {
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.ini {
+  border: black solid 1px;
+  height: 700px;
+  border-bottom: rgb(63, 62, 62) solid 7px;
+  border-top: none;
+  background: black;
+  color: white;
+}
+
+.inicio1 {
+  background-image: url('../IMG/fondoNet.png');
+  /* background-image: url('https://res.cloudinary.com/ehizeex-shop/image/upload/v1668265236/NetflixApp/netflix-reuse-official_ntcjl2_wtrhhh.jpg'); */
+  background-size: cover;
+  background-position: center;
+  height: 1000px;
+}
+
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  gap: 33vw;
+}
+
+img {
+  width: 150px;
+}
+
+.idiSesion {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.idiSesion select {
+  background: none;
+  color: white;
+  width: 130px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+select option {
+  color: black;
+}
+
+.idiSesion button {
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  font-weight: bold;
+  width: 130px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.portada {
+  height: 90%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  margin: 0;
+  gap: 2vh;
+}
+
+.portada h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0 0 10px red;
+  -webkit-text-stroke: red 1px;
+  text-align: center;
+}
+
+.portada p {
+  font-size: 20px;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 0 10px red;
+  -webkit-text-stroke: red .1px;
+}
+
+.portada .porp2 {
+  min-width: 400px;
+  max-width: 850px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.inicio2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.inicio2 .subIni2 h1,
+p {
+  color: white;
+}
+
+.subIni2 h1 {
+  font-size: 50px;
+  margin: 0;
+}
+
+.subIni2 p {
+  font-size: 25px;
+  max-width: 650px;
+  min-width: 300px;
+  text-align: left;
+}
+
+.inicio2 img {
+  width: 700px;
+}
+
+.inicio3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.inicio3 .ini3img {
+  position: relative;
+}
+
+.inicio3 .imgdescarga {
+  border: gray solid;
+  position: absolute;
+  height: 80px;
+  width: 60%;
+  top: 74%;
+  left: 20%;
+  border-radius: 10px;
+  background: black;
+  display: flex;
+  color: white;
+  padding: 10px;
+}
+
+.inicio3 .imgdescarga img {
+  height: 100%;
+  width: 60px;
+}
+
+.inicio3 .imgdescarga .subdescarga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.subdescarga h4,
+p {
+  margin: 0;
+}
+
+.subdescarga p {
+  color: rgb(53, 66, 241);
+  font-weight: bold;
+}
+
+.imgdescarga .iconDescarga {
+  position: absolute;
+  right: 12px;
+  top: 38%;
+  font-size: 25px;
+  animation: desRota 1s ease infinite;
+}
+
+@keyframes desRota {
+  0% {
+    top: 40%;
+  }
+
+  50% {
+    top: 32%;
+  }
+
+  100% {
+    top: 40%;
+  }
+}
+
+.inicio3 .subIni3 {
+  width: 37vw;
+  height: auto;
+}
+
+.inicio3 .subIni3 h1 {
+  font-size: 50px;
+}
+
+.subIni3 p {
+  font-size: 25px;
+  text-align: left;
+}
+
+.inicio3 img {
+  width: 37vw;
+  height: auto;
+}
+
+.inicio3 .subIni3 h1,
+p {
+  color: white;
+}
+.inicio4{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  gap: 50px;
+}
+.inicio4 h1{
+  font-size: 50px;
+  margin: 0;
+}
+.inicio4 aside{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: .3s ease;
+}
+.inicio4 .sub_aside{
+  background: rgb(51, 53, 53);
+}
+.inicio4 aside div .preg{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  padding: 0 20px;
+}
+.inicio4 aside div .preg:hover{
+  background: rgb(62, 60, 60);
+}
+.inicio4 .preg h2{
+  font-size: 30px;
+  font-family: calibri;
+}
+.inicio4 aside div p{
+  /* display: none; */
+  border-top: black solid 1px;
+  padding: 15px 20px;
+  font-size: 20px;
+  text-align: left;
+}
+.inicio4 button{
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 0 10px;
+  height: 50px;
+  cursor: pointer;
+  transition: .3s ease;
+  animation: flotar .5s ease infinite;
+}
+.inicio4 button:hover{
+  background-color: rgb(246, 53, 53);
+}
+@keyframes flotar{
+  0% { transform: translateY(0);}
+  50% { transform: translateY(10px);}
+  100% { transform: translateY(0px);}
+}
+
+
+@media (max-width: 700px) {
+  nav {
+    gap: 0;
+  }
+
+  .inicio2 .img .dsilogo {
+    width: 150px;
+    top: 23%;
+    left: 35%;
+  }
+}
+
+@media (max-width:1356px) {
+  .inicio2 {
     height: auto;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 10px;
+    text-align: center;
+
+  }
+
+  .inicio2 .subIni2,
+  p {
     width: 100%;
   }
-  
-  .ini {
-    border: black solid 1px;
-    height: 700px;
-    border-bottom: rgb(63, 62, 62) solid 7px;
-    border-top: none;
-    background: black;
-  }
-  
-  .inicio1 {
-    background-image: url('../IMG/fondoNet.png');
-    /* background-image: url('https://res.cloudinary.com/ehizeex-shop/image/upload/v1668265236/NetflixApp/netflix-reuse-official_ntcjl2_wtrhhh.jpg'); */
-    background-size: cover;
-    background-position: center;
-    height: 1000px;
+
+  .inicio2 img {
+    height: 100%;
+    width: 100%;
   }
 
-  
-  nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100px;
-    gap: 33vw;
-  }
-  
-  img {
-    width: 150px;
-  }
-  
-  .idiSesion {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .idiSesion select {
-    background: none;
-    color: white;
-    width: 130px;
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  select option {
-    color: black;
-  }
-  
-  .idiSesion button {
-    background: red;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: bold;
-    width: 130px;
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .portada {
-    height: 90%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    gap: 2vh;
-  }
-  
-  .portada h1 {
-    margin: 0;
-    font-size: 50px;
-    font-weight: bold;
-    text-shadow: 0 0 10px red;
-    text-align: center;
-  }
-  
-  .portada p {
-    font-size: 20px;
-    margin: 0;
-    text-align: center;
-    text-shadow: 0 0 10px red;
-  }
-  
-  .portada .porp2 {
-    min-width: 400px;
-    max-width: 850px;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .inicio2 {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .inicio2 .subIni2 h1,
-  p {
-    color: white;
-  }
-  
-  .subIni2 h1 {
-    font-size: 50px;
-    margin: 0;
-  }
-  
   .subIni2 p {
-    font-size: 25px;
-    max-width: 650px;
-    min-width: 300px;
+    max-width: 100%;
   }
-  
-  .inicio2 img {
-    width: 700px;
-  }
-  
+
   .inicio3 {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    flex-direction: column-reverse;
+    text-align: center;
   }
-  
-  .inicio3 .ini3img {
-    position: relative;
-  }
-  
-  .inicio3 .imgdescarga {
-    border: gray solid;
-    position: absolute;
-    height: 80px;
-    width: 60%;
-    top: 74%;
-    left: 20%;
-    border-radius: 10px;
-    background: black;
-    display: flex;
-    color: white;
-    padding: 10px;
-  }
-  
-  .inicio3 .imgdescarga img {
-    height: 100%;
-    width: 60px;
-  }
-  
-  .inicio3 .imgdescarga .subdescarga {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+
+  .inicio3 .subIni3,
+  .ini3img {
     margin: 0;
-    padding: 20px;
+    width: 100%;
   }
-  
-  .subdescarga h4,
-  p {
-    margin: 0;
+
+  .subIni3 h1 {
+    margin-top: -50px;
   }
-  
-  .subdescarga p {
-    color: rgb(53, 66, 241);
-    font-weight: bold;
-  }
-  
-  .imgdescarga .iconDescarga {
-    position: absolute;
-    right: 12px;
-    top: 38%;
-    font-size: 25px;
-    animation: desRota 1s ease infinite;
-  }
-  
-  @keyframes desRota {
-    0% {
-      top: 40%;
-    }
-  
-    50% {
-      top: 32%;
-    }
-  
-    100% {
-      top: 40%;
-    }
-  }
-  
-  .inicio3 .subIni3 {
-    width: 37vw;
-    height: auto;
-  }
-  
-  .inicio3 .subIni3 h1 {
-    font-size: 50px;
-  }
-  
-  .subIni3 p {
-    font-size: 25px;
-  }
-  
-  .inicio3 img {
-    width: 37vw;
-    height: auto;
-  }
-  
-  .inicio3 .subIni3 h1,
-  p {
-    color: white;
-  }
-  
-  @media (max-width: 700px) {
-    nav {
-      gap: 0;
-    }
-    .inicio2 .img .dsilogo{
-      width: 150px;
-      top: 23%;
-      left: 35%;
-    }
-  }
-  
-@media (max-width:1356px) {
-    .inicio2 {
-      height: auto;
-      text-align: center;
-  
-    }
-  
-    .inicio2 .subIni2, p {
-      width: 100%;
-    }
-  
-    .inicio2 img {
-      height: 100%;
-      width: 100%;
-    }
-  
-    .subIni2 p {
-      max-width: 100%;
-    }
-    .inicio3{
-      display: flex;
-      flex-direction: column-reverse;
-      text-align: center;
-    }
-    .inicio3 .subIni3, .ini3img{
-      margin: 0;
-      width: 100%;
-    }
-    .subIni3 h1{
-      margin-top: -50px;
-    }
-  }
+}

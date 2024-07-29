@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-.navegador{
+
+.navegador {
     position: absolute;
     margin: 0 auto;
     width: 100%;
@@ -7,7 +8,8 @@
     background: black;
     z-index: 1;
 }
-.navegador footer{
+
+.navegador footer {
     height: 100px;
     background: rgb(15, 15, 15);
     position: fixed;
@@ -17,18 +19,20 @@
     align-items: center;
     justify-content: center;
 }
-footer .logo{
+
+footer .logo {
     position: absolute;
     left: 2.5%;
 }
-footer .userIcon{
+
+footer .userIcon {
+    margin-top: -15px;
     color: white;
     position: absolute;
     right: 1.5%;
-    font-size: 35px;
+    font-size: 35px;   
 }
-
-footer .buscador{
+footer .buscador {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -36,7 +40,8 @@ footer .buscador{
     align-items: center;
     justify-content: space-around;
 }
-footer .buscador .buscar{
+
+footer .buscador .buscar {
     border: gray solid 1px;
     width: 50%;
     height: 40px;
@@ -47,7 +52,7 @@ footer .buscador .buscar{
     background: rgb(15, 15, 15);
 }
 
-footer .buscador input{
+footer .buscador input {
     width: 100%;
     padding: 5px;
     outline: none;
@@ -55,12 +60,15 @@ footer .buscador input{
     border-radius: 5px;
     color: white;
     font-size: 18px;
-    font-family:'poppins';
+    font-family: 'poppins';
     letter-spacing: -1px;
     margin-left: 5px;
     background: transparent;
 }
-.buscador .conte-icon{
+footer .for-perfil{
+    display: none;
+}
+.buscador .conte-icon {
     display: grid;
     place-items: center;
     width: 60px;
@@ -72,7 +80,8 @@ footer .buscador input{
     border-bottom-right-radius: 12px;
     cursor: pointer;
 }
-.buscador .icons{
+
+.buscador .icons {
     color: white;
     font-size: 25px;
     display: grid;
@@ -80,32 +89,36 @@ footer .buscador input{
     transition: 0.2s ease;
     background: transparent;
 }
-footer .buscador .opciones{
+
+footer .buscador .opciones {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
     width: 100%;
     overflow-x: auto;
     &::-webkit-scrollbar {
-        height: 0;
+        width: 0;
     }
 }
-footer .opciones a{
+
+footer .opciones a {
     color: white;
     font-weight: bold;
     text-decoration: none;
     text-align: center;
     font-size: 14px;
-    padding:7px;
+    padding: 7px;
     display: flex;
     height: fit-content;
     border-radius: 10px;
     background: rgb(39, 37, 37);
 }
-footer .opciones .aInicio{
+
+footer .opciones .aInicio {
     margin-left: 10px;
 }
-footer .opciones .aFinal{
+
+footer .opciones .aFinal {
     margin-right: 10px;
 }
 
@@ -121,13 +134,15 @@ footer .opciones .aFinal{
     flex-direction: column;
     z-index: 2;
 }
-.left-container .conte-icon{
+
+.left-container .conte-icon {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 60px;
     height: 60px;
     border-bottom: black solid 1px;
+    cursor: pointer;
 }
 
 .left-container .icons {
@@ -136,8 +151,10 @@ footer .opciones .aFinal{
     display: grid;
     place-items: center;
     transition: 0.2s ease;
+    cursor: pointer;
 }
-.menu-oculto{
+
+.menu-oculto {
     background: rgba(31, 29, 29);
     position: fixed;
     left: -200px;
@@ -149,7 +166,8 @@ footer .opciones .aFinal{
     transition: 0.5s ease;
     z-index: 1;
 }
-.menu-oculto a{
+
+.menu-oculto a {
     border-bottom: black solid 1px;
     height: 60px;
     display: flex;
@@ -161,37 +179,86 @@ footer .opciones .aFinal{
     font-weight: bold;
     padding-left: 70px;
     transition: .3s ease;
+    cursor: pointer;
 }
-.menu-oculto a:hover{
+
+.menu-oculto a:hover {
     background: rgba(24, 23, 23, 0.7);
 }
-.left-container:hover ~ .menu-oculto{
+
+.left-container:hover~.menu-oculto {
     left: 0;
 }
-.menu-oculto:hover{
+
+.menu-oculto:hover {
     left: 0;
 }
 
 @media (max-width:1356px) {
-    .navegador nav p{
+    .navegador nav p {
         text-align: center;
         align-items: end;
     }
 }
 
 @media (max-width: 800px) {
-    footer .logo{
+    footer .logo {
         position: absolute;
         top: 5px;
         width: 120px;
     }
-    footer .logo img{
+
+    footer .logo img {
         width: 100%;
     }
-    .left-container{
+
+    .left-container {
         display: none;
     }
-    .menu-oculto{
+
+    .menu-oculto {
         display: none;
     }
+}
+
+.navegador .buscador .opciones {
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.navegador .buscador .enlaces-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+}
+
+.navegador .buscador .enlaces-container::-webkit-scrollbar {
+    display: none;
+}
+
+.navegador .buscador .scroll-btn {
+    position: absolute;
+    background-color: rgb(179, 155, 155);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    color: black;
+}
+
+.navegador .buscador .scroll-left {
+    left: 0;
+}
+
+.navegador .buscador .scroll-right {
+    right: 0;
 }
