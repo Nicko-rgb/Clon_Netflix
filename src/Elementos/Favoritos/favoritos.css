@@ -1,57 +1,30 @@
-.anime {
-    position: relative;
+.favoritos{
     font-family: 'poppins';
 }
-
-.anime .navegador {
+.favoritos .navegador{
+    position: relative;
     z-index: 2;
 }
 
-.anime .container-pelis {
-    position: absolute;
-    top: 100px;
-    left: 60px;
-    color: white;
+.favoritos .container-pelis{
+    margin-top: 100px;
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
     width: calc(100% - 60px);
 }
-
-.anime .container-pelis .referencia {
-    position: relative;
-    height: 70vh;
+.favoritos h1{
+    color: white;
+    text-align: center;
 }
-
-.anime .referencia .descrip {
-    background: linear-gradient(150deg, rgba(0, 0, 0, 0.582) -10%, rgba(252, 252, 252, 0) 100%);
-    padding: 10px;
-    max-width: 700px;
-    min-height: 250px;
-    width: 100%;
-    position: absolute;
-}
-
-.anime .referencia .descrip h1 {
-    margin: 0;
-    text-shadow: 0 0 2px red;
-    color: #007bff;
-}
-
-.anime .referencia .descrip p {
-    text-align: left;
-    max-width: 650px;
-    text-align: justify;
-}
-
-.anime .box-pelis {
-    margin-top: -15vh;
+.favoritos .box-pelis{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 20px;
-    overflow-y: auto;
     padding: 15px;
-    height: 100%;
+    overflow-y: auto;
 }
-
-.anime .box-pelis .box {
+.favoritos .box-pelis .box{
     position: relative;
     box-shadow: 0 0 4px aqua;
     border: black solid 1px;
@@ -66,11 +39,12 @@
     padding: 8px;
 }
 
-.anime .box-pelis .box:hover {
+
+.favoritos .box-pelis .box:hover {
     transform: scale(1.05);
 }
 
-.anime .box-pelis .box p {
+.favoritos .box-pelis .box p {
     pointer-events: none;
     z-index: 1;
     font-weight: bold;
@@ -81,11 +55,11 @@
         0 0 2px red;
 }
 
-.anime .box-pelis .box p:hover {
+.favoritos .box-pelis .box p:hover {
     transform: scale(1);
 }
 
-.anime .box-pelis .box button {
+.favoritos .box-pelis .box button {
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -102,11 +76,11 @@
     transition: .3s ease;
 }
 
-.anime .box-pelis .box button:hover {
+.favoritos .box-pelis .box button:hover {
     box-shadow: 0 0 10px red;
 }
 
-.anime .box img {
+.favoritos .box img {
     position: absolute;
     width: 94%;
     height: 92%;
@@ -116,7 +90,7 @@
     transition: .5s ease;
 }
 
-.anime .box img:hover {
+.favoritos .box img:hover {
     transform: scale(1.09);
 }
 
@@ -139,8 +113,7 @@
     position: relative;
     padding: 30px;
     border-radius: 10px;
-    background: rgba(39, 38, 38, 0.405);
-    /* box-shadow: 0 0 7px aqua; */
+    background: rgb(39, 38, 38);
     max-width: 700px;
     width: 100%;
     height: auto;
@@ -178,8 +151,11 @@
     font-weight: bold;
     color: white;
     padding: 10px 20px;
+    display: grid;
+    place-items: center;
     box-shadow: aqua 0 0 4px;
     transition: .3s ease;
+    width: 130px;
 }
 
 .modal_video .modal_buttons button:hover {
@@ -197,12 +173,14 @@
     margin: 0;
     margin-top: 10px;
     text-shadow: 0 0 2px aqua;
+    color: white;
 }
 
 .modal_video .modal_content .descripcion {
     width: 100%;
     text-align: left;
 }
+
 /*************************************/
 .favorite-icon {
     cursor: pointer;
@@ -219,34 +197,78 @@
     color: red;
     /* Color cuando está en favoritos */
 }
+
+
+
+/**********************************/
+.cargando {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.cargando-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;    
+}
+
+.cargando-circle {
+    border: 4px solid #333;
+    border-top-color: transparent;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 @media (max-width: 1360px) {
     .modal_video .modal_buttons {
-        border: green solid;
         display: flex;
         justify-content: center;
         align-items: center;
         gap: -100px;
     }
     .modal_video .modal_buttons button{
+        margin-left: calc(50% - 130px);
         width: 130px;
     }
 }
 @media (max-width: 1100px){
-    .anime .box-pelis{
+    .favoritos .box-pelis{
         grid-template-columns: repeat( 4,1fr);
     }
 }
 @media (max-width: 950px){
-    .anime .box-pelis{
+    .favoritos .box-pelis{
         grid-template-columns: repeat(3, 1fr);
     }
 }
 @media (max-width: 800px){
-    .anime .container-pelis{
+    .favoritos .container-pelis{
         width: 100%;
-        left: 0;
+        margin-left: 0;
     }
-    .anime .box-pelis{
+    .favoritos .box-pelis{
         grid-template-columns: repeat(2, 1fr);
     }
 }

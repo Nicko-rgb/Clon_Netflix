@@ -23,6 +23,7 @@
 footer .logo {
     position: absolute;
     left: 2.5%;
+    top: 10px;
 }
 
 footer .userIcon {
@@ -43,7 +44,8 @@ footer .buscador {
 
 footer .buscador .buscar {
     border: gray solid 1px;
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
     height: 40px;
     display: flex;
     align-items: center;
@@ -53,6 +55,7 @@ footer .buscador .buscar {
 }
 
 footer .buscador input {
+    max-width: 600px;
     width: 100%;
     padding: 5px;
     outline: none;
@@ -155,7 +158,7 @@ footer .opciones .aFinal {
 }
 
 .menu-oculto {
-    background: rgba(31, 29, 29);
+    background: rgba(24, 23, 23, 0.7);
     position: fixed;
     left: -200px;
     top: 100px;
@@ -165,6 +168,7 @@ footer .opciones .aFinal {
     height: 100%;
     transition: 0.5s ease;
     z-index: 1;
+    backdrop-filter: blur(14px);
 }
 
 .menu-oculto a {
@@ -194,6 +198,10 @@ footer .opciones .aFinal {
     left: 0;
 }
 
+.navegador .menu-nav{
+    display: none;
+}
+
 @media (max-width:1356px) {
     .navegador nav p {
         text-align: center;
@@ -204,12 +212,16 @@ footer .opciones .aFinal {
 @media (max-width: 800px) {
     footer .logo {
         position: absolute;
-        top: 5px;
-        width: 120px;
+        top: 13px;
+        width: 100px;
     }
 
     footer .logo img {
         width: 100%;
+    }
+    footer .buscador .buscar{
+        width: 85%;
+        margin-left: 50px;
     }
 
     .left-container {
@@ -217,7 +229,47 @@ footer .opciones .aFinal {
     }
 
     .menu-oculto {
-        display: none;
+        /* display: none; Ocultar por defecto */
+        position: fixed; /* Asegúrate de que el menú se posicione correctamente */
+        left: -270px;
+        background-color: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente para el menú */
+        z-index: 1; /* Asegúrate de que esté por encima de otros elementos */
+        transition: .3s ease;
+    }
+    .navegador .opciones{
+        margin-left: 0;
+    }
+
+    .navegador .menu-nav {
+        display: block;
+        color: white;
+        position: fixed;
+        left: 10px;
+        padding: 5px;
+        font-size: 30px;
+        top: 60px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .navegador .menu-nav:hover + .menu-oculto {
+        display: block; /* Mostrar el menú oculto al pasar el cursor */
+        left: -55px;
+    }
+    .navegador .menu-oculto:hover{
+        left: -55px;
+    }
+}
+@media (max-width: 700px) {
+    .navegador .userIcon{
+        margin-top: -35px;
+    }
+    .navegador .buscador{
+        position: relative;
+    }
+    .navegador .opciones{
+        position: absolute;   
+        margin-left: 20px;
     }
 }
 

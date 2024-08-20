@@ -14,6 +14,9 @@ import Musical from './Elementos/Categorias/Musical/Musical';
 import ResetPassword from './Elementos/ResetPassword/ResetPassword';
 import NewPassword from './Elementos/ResetPassword/NewPassword';
 import Perfil from './Elementos/Perfil/Perfil';
+import BuscarVideo from './Elementos/Buscar/BuscarVideo';
+import Favoritos  from './Elementos/Favoritos/Favoritos';
+import Playlist from './Elementos/Playlist/Playlist';
 
 function App() {
     return (
@@ -33,6 +36,9 @@ function App() {
                     <Route path="/reset-password" element={<ResetPassword />} />
                     <Route path="/reset-password/:token" element={<NewPassword />} />
                     <Route path='/user-perfil/:username/:id' element={<Perfil />} />
+                    <Route path="/search" element={<BuscarVideo />} />
+                    <Route path="/favoritos" element={<Favoritos />} />
+                    <Route path="/playlist" element={<Playlist />} />
                 </Routes>
             </BrowserRouter>
         </div>

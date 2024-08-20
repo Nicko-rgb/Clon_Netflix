@@ -1,5 +1,6 @@
 .perfil{
     position: relative;
+    font-family: 'poppins';
 }
 .perfil .navegador{
     z-index: 1;
@@ -69,6 +70,66 @@
     font-size: 20px;
     transition: 0.3s ease;
 }
+.perfil .videos_ramdom h2{
+    text-align: center;
+    margin: 0;
+    margin-top: 20px;
+}
+.perfil .videos_ramdom .video-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.perfil .videos_ramdom .box{
+    position: relative;
+    box-shadow: 0 0 4px aqua;
+    border: black solid 1px;
+    background: rgb(23, 22, 22);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease;
+    padding: 8px;
+    max-width: 250px;
+}
+
+.perfil .videos_ramdom .box:hover {
+    transform: scale(1.05);
+}
+
+.perfil .videos_ramdom .box p {
+    pointer-events: none;
+    z-index: 1;
+    font-weight: bold;
+    backdrop-filter: blur(20px);
+    color: white;
+    text-shadow: 0 0 2px red,
+        0 0 2px red,
+        0 0 2px red;
+}
+
+.perfil .videos_ramdom .box p:hover {
+    transform: scale(1);
+}
+
+.perfil .box img {
+    position: absolute;
+    width: 94%;
+    height: 92%;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: 0;
+    transition: .5s ease;
+}
+
+.perfil .box img:hover {
+    transform: scale(1.09);
+}
+
+
 
 
 

@@ -12,7 +12,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 function Principal() {
 
     const [isRegistroVisible, setIsRegistroVisible] = useState(true);
-    const [textoBoton, setTextoBoton] = useState('¿Ya tienes cuenta? Inicia Sesión');
+    const [textoBoton, setTextoBoton] = useState('¿No tienes cuenta? Regístrate');
 
     const [activeIndex, setActiveIndex] = useState(null);
     const toggleAnswer = (index) => {
@@ -21,7 +21,7 @@ function Principal() {
 
     const toggleFormulario = () => {
         setIsRegistroVisible(!isRegistroVisible);
-        setTextoBoton(isRegistroVisible ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia Sesión');
+        setTextoBoton(isRegistroVisible ? '¿Ya tienes cuenta? Inicia Sesión' : '¿No tienes cuenta? Regístrate');
     };
 
     //efecto para desplazamiento del button último a "inicio1"
@@ -53,7 +53,7 @@ function Principal() {
                     <p className="porp1">Disfruta donde quieras. Cancela cuando quieras.</p>
                     <p className="porp2">¿Quieres ver Netflix ya? Ingresa tu email o número de celular para crear una cuenta o reiniciar tu membresía.</p>
                     {isRegistroVisible ? <SesionForm /> : <RegistroForm /> }
-                    <button onClick={toggleFormulario}> {textoBoton} </button>
+                    <button className='ver_form' onClick={toggleFormulario}> {textoBoton} </button>
                 </div>
             </div>
             <div className="ini inicio2">
@@ -62,14 +62,14 @@ function Principal() {
                     <p>Ve en smart TV, PlayStation, Xbox, Chromecast, Apple TV, reproductores de Blu-ray y más.</p>
                 </div>
                 <div className='img'>
-                    <img src={foto2}></img>
+                    <img src={foto2} alt=''></img>
                 </div>
             </div>
             <div className="ini inicio3">
                 <div className='ini3img'>
-                    <img src={foto3}></img>
+                    <img src={foto3} alt=''></img>
                     <div className='imgdescarga'>
-                        <img src={stranger}></img>
+                        <img src={stranger} alt=''></img>
                         <div className='subdescarga'>
                             <h4>Cosas mas extrañas</h4>
                             <p>Descargar...</p>

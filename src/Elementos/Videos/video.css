@@ -58,7 +58,6 @@
 .videos .videoFila {
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
     overflow: hidden;
 }
 
@@ -68,7 +67,7 @@
     font-size: 25px;
     margin: 0;
     margin-left: 25px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .videoFila .videoContainer {
@@ -120,7 +119,7 @@
     display: none;
 }
 
-.videoFila .subFila .sub .datosVideo {
+.videoFila .subFila .sub_box .datosVideo {
     width: 280px;
     height: 230px;
     padding: 10px;
@@ -128,14 +127,75 @@
     border-radius: 10px;
     overflow: hidden;
     transition: .4s ease;
+    position: relative;
+    /* box-shadow: 0 0 4px aqua; */
+    border: black solid 1px;
+    background: rgb(23, 22, 22);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s ease;
+    padding: 8px;
 }
-.videoFila .subFila .sub .datosVideo:hover{
-    box-shadow: 0 0 3px white;
-    transform: scale(1.04);
+.videoFila .subFila .sub_box .datosVideo:hover{
+    transform: scale(1.03);
 }
 
-.videoFila .subFila .sub .datosVideo h3 {
+.videoFila .subFila .sub_box .datosVideo p {
+    pointer-events: none;
+    z-index: 1;
+    font-weight: bold;
+    backdrop-filter: blur(20px);
     color: white;
-    text-align: center;
-    margin: 0;
+    text-shadow: 0 0 2px red,
+        0 0 2px red,
+        0 0 2px red;
+}
+
+.videos .sub_box .datosVideo button{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    height: 37px;
+    width: 37px;
+    box-shadow: 0 0 3px red;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(20px);
+    transition: .3s ease;
+}
+.videos .videoFila .datosVideo img {
+    position: absolute;
+    width: 94%;
+    height: 92%;
+    border-radius: 10px;
+    object-fit: cover;
+    z-index: 0;
+    transition: .5s ease;
+}
+
+.videos .videoFila .datosVideo img:hover {
+    transform: scale(1.09);
+}
+
+
+
+
+@media (max-width: 800px){
+    .videos{
+        width: 98vw;
+        margin-left: -70px;
+    }
+    .videos .box-pelis{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .videos .videoNuevo{
+        width: calc(100%);
+    }
 }

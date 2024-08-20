@@ -1,5 +1,5 @@
 import './perfil.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaUserCircle } from "react-icons/fa";
 import { MdOutlineModeEdit, MdDeleteOutline } from "react-icons/md";
@@ -10,8 +10,9 @@ import Navegador from '../Navegador/Navegador';
 import EditPerfil from './EditPerfil';
 
 export const Perfil = () => {
-    const { userId, userName, userApellido, userEmail,handleLogout, updateUserData } = DatosSesion();
+    const { userId, userName, userApellido, userEmail, handleLogout } = DatosSesion();
     const [isEditing, setIsEditing] = useState(false);
+    const [randomVideos, setRandomVideos] = useState([]);
     const navigate = useNavigate();
 
     const handleDeleteAccount = async () => {
@@ -27,6 +28,19 @@ export const Perfil = () => {
             }
         }
     };
+
+    const fetchRandomVideos = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/api/videos/random?count=20'); // Asegúrate de tener esta ruta en tu servidor
+            setRandomVideos(response.data);
+        } catch (error) {
+            console.error('Error al obtener videos aleatorios:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchRandomVideos();
+    }, []);
 
     return (
         <div className="perfil">
@@ -47,8 +61,20 @@ export const Perfil = () => {
                         <button className="btn" onClick={handleLogout}><IoIosLogOut className='ico' /> Cerrar Sesión</button>
                     </div>
                 </div>
-                <div className="estadisticas">
-                    <h2>Tus Videos Favoritos</h2>
+                <div className="videos_ramdom">
+                    <h2>Puede que te Gusten</h2>
+                    <div className="video-list">
+                        {randomVideos.length > 0 ? (
+                            randomVideos.map(video => (
+                                <div className="box" key={video.id}>
+                                    <img src={video.url_imagen} alt={video.titulo} />
+                                    <p>{video.titulo}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No hay videos disponibles.</p>
+                        )}
+                    </div>
                 </div>
             </div>
             {isEditing && (

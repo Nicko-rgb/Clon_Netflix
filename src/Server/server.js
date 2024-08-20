@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -15,15 +15,20 @@ app.use(bodyParser.json());
 
 // Conexión a la base de datos
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'junction.proxy.rlwy.net',
     user: 'root',
-    password: '',
-    database: 'cine_hub'
+    password: 'rRpADYvrNmsOgmJUAzrGTOqpHYDaUyyw',
+    database: 'railway',
+    port: 35548 // Asegúrate de especificar el puerto
 });
 
+// Establecer la conexión
 db.connect((err) => {
-    if (err) throw err;
-    console.log('Conectado a la base de datos MySQL!');
+    if (err) {
+        console.error('Error conectando a la base de datos:', err);
+        return;
+    }
+    console.log('Conexión a la base de datos MySQL establecida.');
 });
 
 // Ruta para registrar un nuevo usuario
@@ -138,7 +143,7 @@ app.post('/api/reset-password', (req, res) => {
             const mailOptions = {
                 from: 'mancillanixon7@gmail.com',
                 to: email,
-                subject: 'Restablece de Contraseña CineHub',
+                subject: 'Restablecimiento de contraseña CineHub',
                 text: `Haz clic en el siguiente enlace para restablecer tu contraseña: http://localhost:3000/reset-password/${token}`
             };
 
@@ -193,7 +198,7 @@ app.post('/api/reset-password/:token', (req, res) => {
     });
 });
 
-// Ruta para restablecer la contraseña
+// Ruta para crear nueva contraseña
 app.post('/api/new-password', (req, res) => {
     const { token, newPassword } = req.body;
 
@@ -276,15 +281,137 @@ app.get('/api/videos/cinehub', (req, res) => {
     });
 });
 
-// Ruta para obtener videos por categoría
-app.get('/api/videos/cinehub/:categoria', (req, res) => {
-    const categoria = req.params.categoria; // Obtener la categoría de los parámetros de la URL
-    const query = 'SELECT * FROM Videos WHERE genero = ?'; // Filtrar por genero
-    db.query(query, [categoria], (err, results) => {
+// Ruta para agregar un video a favoritos
+app.post('/api/favorites', (req, res) => {
+    const { userId, videoId } = req.body;
+
+    // Validar que se recibieron ambos IDs
+    if (!userId || !videoId) {
+        return res.status(400).json({ error: 'userId y videoId son requeridos' });
+    }
+
+    const query = 'INSERT INTO Favoritos (usuario_id, video_id) VALUES (?, ?)';
+    db.query(query, [userId, videoId], (err, result) => {
         if (err) {
-            return res.status(500).json({ error: 'Error al obtener los videos' });
+            console.error('Error al insertar en Favoritos:', err);
+            return res.status(500).json({ error: 'Error al agregar a favoritos' });
         }
-        res.json(results); // Enviar los resultados como respuesta
+        res.status(201).json({ message: 'Video agregado a favoritos', id: result.insertId });
+    });
+});
+
+// Ruta para eliminar un video de favoritos
+app.delete('/api/favorites/:userId/:videoId', (req, res) => {
+    const { userId, videoId } = req.params;
+
+    const query = 'DELETE FROM Favoritos WHERE usuario_id = ? AND video_id = ?';
+    db.query(query, [userId, videoId], (err, result) => {
+        if (err) {
+            console.error('Error al eliminar de Favoritos:', err);
+            return res.status(500).json({ error: 'Error al eliminar de favoritos' });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: 'Favorito no encontrado' });
+        }
+        res.status(200).json({ message: 'Favorito eliminado correctamente' });
+    });
+});
+
+// Ruta para agregar un video a la lista de reproducción
+app.post('/api/lista-reproduccion', (req, res) => {
+    const { userId, videoId } = req.body;
+
+    // Verificar si el video ya está en la lista de reproducción
+    const checkQuery = 'SELECT * FROM ListaReproduccion WHERE usuario_id = ? AND video_id = ?';
+    db.query(checkQuery, [userId, videoId], (err, results) => {
+        if (err) {
+            console.error('Error checking for duplicates:', err);
+            return res.status(500).json({ error: 'Error checking for duplicates' });
+        }
+
+        // Si el video ya existe, responder con un mensaje
+        if (results.length > 0) {
+            return res.status(400).json({ message: 'El video ya está en la lista de reproducción' });
+        }
+
+        // Si el video no existe, insertarlo
+        const insertQuery = 'INSERT INTO ListaReproduccion (usuario_id, video_id) VALUES (?, ?)';
+        db.query(insertQuery, [userId, videoId], (err, results) => {
+            if (err) {
+                console.error('Error inserting into ListaReproduccion:', err);
+                return res.status(500).json({ error: 'Error inserting into ListaReproduccion' });
+            }
+            res.status(201).json({ message: 'Video añadido a la lista de reproducción' });
+        });
+    });
+});
+
+// Ruta para obtener los favoritos de un usuario
+app.get('/api/favorites/:userId', (req, res) => {
+    const { userId } = req.params;
+
+    const query = 'SELECT video_id FROM Favoritos WHERE usuario_id = ?';
+    db.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error('Error al obtener favoritos:', err);
+            return res.status(500).json({ error: 'Error al obtener los favoritos' });
+        }
+
+        // Extraer solo los IDs de los videos
+        const favoriteIds = results.map(row => row.video_id);
+        res.status(200).json(favoriteIds);
+    });
+});
+//ruta para obtner video por id
+app.get('/api/videos/cine/:id', (req, res) => {
+    const { id } = req.params;
+    const query = 'SELECT * FROM Videos WHERE id = ?';
+    db.query(query, [id], (err, results) => {
+        if (err) {
+            console.error('Error al obtener el video:', err);
+            return res.status(500).json({ error: 'Error al obtener el video' });
+        }
+        res.status(200).json(results[0]); // Devolver el primer (y único) resultado
+    });
+});
+
+//ruta para buscar los videos
+app.get('/api/videos/search', (req, res) => {
+    const searchTerm = req.query.q;
+    const query = 'SELECT * FROM Videos WHERE titulo LIKE ?';
+    db.query(query, [`%${searchTerm}%`], (err, results) => {
+        if (err) {
+            console.error('Error al buscar videos:', err);
+            return res.status(500).json({ error: 'Error al buscar videos' });
+        }
+        res.json(results);
+    });
+});
+
+//ruta para mostrar los videos vistos 
+app.get('/api/playlist/:userId', (req, res) => {
+    const { userId } = req.params;
+    const query = 'SELECT video_id FROM ListaReproduccion WHERE usuario_id = ?';
+    db.query(query, [userId], (err, results) => {
+        if (err) {
+            console.error('Error al obtener la lista de reproducción:', err);
+            return res.status(500).json({ error: 'Error al obtener la lista de reproducción' });
+        }
+        const videoIds = results.map(row => row.video_id);
+        res.status(200).json(videoIds);
+    });
+});
+
+//ruta para obtener videos ramdom
+app.get('/api/videos/random', (req, res) => {
+    const count = parseInt(req.query.count) || 20; // Número de videos a devolver
+    const query = 'SELECT * FROM Videos ORDER BY RAND() LIMIT ?';
+    db.query(query, [count], (err, results) => {
+        if (err) {
+            console.error('Error al obtener videos aleatorios:', err);
+            return res.status(500).json({ error: 'Error al obtener videos aleatorios' });
+        }
+        res.json(results);
     });
 });
 

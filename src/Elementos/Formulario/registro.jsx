@@ -54,35 +54,38 @@ const RegistroForm = () => {
     };
 
     return (
-        <form className="registro" onSubmit={handleSubmit}>
-            <h2>REGISTRARSE</h2>
-            <div>
-                <input placeholder='' type='text' value={nombre} onChange={(e) => setNombre(e.target.value)} required />
-                <label>Nombre</label>
-            </div>
-            <div>
-                <input placeholder='' type='text' value={apellido} onChange={(e) => setApellido(e.target.value)} required />
-                <label>Apellido</label>
-            </div>
-            <div>
-                <input placeholder='' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
-                <label>Email</label>
-            </div>
-            <div>
-                <input placeholder='' type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-                <label>Contraseña</label>
-            </div>
-            {error && <p className="error">{error}</p>}
-            <button type='submit' className='comenzar'>COMENZAR</button>
+        <div>
+            <form className="registro" onSubmit={handleSubmit}>
+                <h2>REGISTRARSE</h2>
+                <div>
+                    <input placeholder='' type='text' value={nombre} onChange={(e) => setNombre(e.target.value)} required />
+                    <label>Nombre</label>
+                </div>
+                <div>
+                    <input placeholder='' type='text' value={apellido} onChange={(e) => setApellido(e.target.value)} required />
+                    <label>Apellido</label>
+                </div>
+                <div>
+                    <input placeholder='' type='email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <label>Email</label>
+                </div>
+                <div>
+                    <input placeholder='' type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <label>Contraseña</label>
+                </div>
+                {error && <p className="error">{error}</p>}
+                <button type='submit' className='comenzar'>COMENZAR</button>
+            </form>
             {isLoading && (
-                <div className="modal">
+                <div className="modal_form modal">
                     <div className="modal-content">
                         <div className="loader"></div>
                         <p>Registrando usuario...</p>
                     </div>
                 </div>
             )}
-        </form>
+        </div>
+
     );
 };
 

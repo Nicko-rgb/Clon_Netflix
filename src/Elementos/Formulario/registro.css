@@ -73,53 +73,66 @@ input:focus+label {
   cursor: pointer;
 }
 
+.registro .forgot-password:hover {
+  transition: .3s ease;
+  color: #f7f7f7;
+  text-decoration: underline red 1px;
+}
+
 
 
 
 
 
 /***************************************/
-.modal {
+.modal_form {
   position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: .5s ease;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.526);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s ease;
+  z-index: 9999;
 }
 
-.modal-content {
+.modal_form .modal-content {
   background-color: #fefefe;
-  padding: 20px;
+  padding: 40px 70px;
   border: 1px solid #888;
-  border-radius: 4px;
+  box-shadow: 0 0 3px aqua;
+  border-radius: 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.loader {
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid #3498db;
+.modal_form .loader {
+  border: 4px solid #c6f7fb;
+  border-top: 4px solid #0099ff;
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  animation: spin 2s linear infinite;
+  animation: spin 1.4s linear infinite;
 }
-.modal p{
+
+.modal_form p {
   font-size: 20px;
-  color: black;
+  color: #0099ff;
   text-shadow: aqua 0 0 2px;
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }

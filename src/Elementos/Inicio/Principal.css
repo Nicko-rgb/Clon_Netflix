@@ -106,6 +106,12 @@ select option {
   display: flex;
   flex-wrap: wrap;
 }
+.portada .ver_form{
+  padding: 5px 5px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
 
 .inicio2 {
   display: flex;

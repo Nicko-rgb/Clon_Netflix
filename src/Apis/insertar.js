@@ -17,7 +17,7 @@ connection.connect((err) => {
   // Insertar los videos en la tabla Videos
   BaseDatos.forEach((video) => {
     const query = 'INSERT INTO Videos (titulo, genero, descripcion, ano, url_video, url_imagen) VALUES (?, ?, ?, ?, ?, ?)';
-    connection.query(query, [video.titulo, video.genero, video.descripcion, video.ano, video.url, video.image], (err, result) => {
+    connection.query(query, [video.titulo, video.genero, video.descripcion, video.ano, video.url, video.imagen], (err, result) => {
       if (err) throw err;
       console.log(`Video "${video.titulo}" insertado con ID: ${result.insertId}`);
     });

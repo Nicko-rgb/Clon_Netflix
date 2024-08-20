@@ -47,40 +47,31 @@ const SesionForm = () => {
     };
 
     return (
-        <form className='registro' onSubmit={handleSubmit}>
-            <h2>INICIAR SESION</h2>
-            <div>
-                <input
-                    type="email"
-                    placeholder=''
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <label>Correo Electrónico</label>
-            </div>
-            <div>
-                <input
-                    type="password"
-                    placeholder=''
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <label>Contraseña</label>
-            </div>
-            {error && <p className="error">{error}</p>}
-            <button type='submit' className='comenzar'>INICIAR SESION</button>
-            <p onClick={handleForgotPassword} className="forgot-password" style={{cursor: 'pointer'}}>Olvidaste la contraseña?</p>
+        <div>
+            <form className='registro' onSubmit={handleSubmit}>
+                <h2>INICIAR SESION</h2>
+                <div>
+                    <input type="email" placeholder='' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <label>Correo Electrónico</label>
+                </div>
+                <div>
+                    <input type="password" placeholder='' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <label>Contraseña</label>
+                </div>
+                {error && <p className="error">{error}</p>}
+                <button type='submit' className='comenzar'>INICIAR SESION</button>
+                <p onClick={handleForgotPassword} className="forgot-password" style={{ cursor: 'pointer' }}>Olvidaste la contraseña?</p>
+            </form>
             {isLoading && (
-                <div className="modal">
+                <div className="modal_form">
                     <div className="modal-content">
                         <div className="loader"></div>
                         <p>Iniciando sesión...</p>
                     </div>
                 </div>
             )}
-        </form>
+        </div>
+
     );
 };
 

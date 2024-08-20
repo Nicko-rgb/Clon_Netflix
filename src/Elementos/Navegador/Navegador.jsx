@@ -7,6 +7,9 @@ import { ImExit } from "react-icons/im";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import Logo from '../IMG/Logo.png'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { FaBars } from "react-icons/fa";
 import DatosSesion from '../Formulario/DatosSesion';
 
 const Navegador = () => {
@@ -28,10 +31,27 @@ const Navegador = () => {
             inline: 'end',
         });
     };
-    
+
     //codigo para dirigir a sus propio perfil
     const minusculaName = userName.toLowerCase().replace(/\s+/g, '')
     const rutaPerfil = `/user-perfil/${minusculaName}/${userId}`
+
+    //codigo para realizar la busqueda
+    const [searchTerm, setSearchTerm] = useState('');
+    const navigate = useNavigate();
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        if (searchTerm === '') {
+            inputRef.current.focus();
+        }
+    }, [searchTerm]);
+
+    const handleSearch = (e) => {
+        const term = e.target.value;
+        setSearchTerm(term);
+        navigate(`/search?q=${term}`);
+    };
 
     return (
         <div className="navegador">
@@ -41,7 +61,13 @@ const Navegador = () => {
                 </Link>
                 <div className="buscador">
                     <div className="buscar">
-                        <input type="text" />
+                        <input
+                            type="text"
+                            placeholder="Buscar videos..."
+                            value={searchTerm}
+                            onChange={handleSearch}
+                            ref={inputRef}
+                        />
                         <button className="conte-icon">
                             <FaSearch className='icons' />
                         </button>
@@ -85,12 +111,12 @@ const Navegador = () => {
                 <Link to={`${rutaPerfil}`} className="conte-icon">
                     <FaRegUser className='icons' />
                 </Link>
-                <div className="conte-icon">
+                <Link to='/favoritos' className="conte-icon">
                     <FaRegHeart className='icons' />
-                </div>
-                <div className="conte-icon">
+                </Link>
+                <Link to='/playlist' className="conte-icon">
                     <FaListUl className='icons' />
-                </div>
+                </Link>
                 <div className="conte-icon">
                     <MdInfoOutline className='icons' />
                 </div>
@@ -98,11 +124,12 @@ const Navegador = () => {
                     <ImExit className='icons' />
                 </div>
             </div>
+            < FaBars className='menu-nav' />
             <div class="menu-oculto">
                 <Link to='/browser'>Inicio</Link>
                 <Link to={`${rutaPerfil}`} >Cuenta</Link>
-                <a href="#">Favoritos</a>
-                <a href="#">Lista de Reproduccion</a>
+                <a href="/favoritos">Favoritos</a>
+                <a href="/playlist">Lista de Reproduccion</a>
                 <a href="#">Informacion</a>
                 <a onClick={handleLogout}>Cerrar</a>
             </div>
