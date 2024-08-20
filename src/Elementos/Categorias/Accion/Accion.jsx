@@ -17,7 +17,7 @@ const Accion = () => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/videos/cinehub');
+                const response = await fetch('/api/videos/cinehub');
                 if (!response.ok) {
                     throw new Error('Error al obtener los videos');
                 }
@@ -36,7 +36,7 @@ const Accion = () => {
 
         const fetchFavorites = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/favorites/${userId}`);
+                const response = await fetch(`/api/favorites/${userId}`);
                 if (!response.ok) {
                     throw new Error('Error al obtener los favoritos');
                 }
@@ -57,7 +57,7 @@ const Accion = () => {
         try {
             if (isFavorite) {
                 // Si ya está en favoritos, eliminarlo
-                const response = await fetch(`http://localhost:5000/api/favorites/${userId}/${video.id}`, {
+                const response = await fetch(`/api/favorites/${userId}/${video.id}`, {
                     method: 'DELETE',
                 });
 
@@ -70,7 +70,7 @@ const Accion = () => {
                 console.log(`Eliminado de favoritos: ${video.titulo}`);
             } else {
                 // Si no está en favoritos, agregarlo
-                const response = await fetch('http://localhost:5000/api/favorites', {
+                const response = await fetch('/api/favorites', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ const Accion = () => {
 
     const handleAddToPlaylist = async (video) => {
         try {
-            const response = await fetch('http://localhost:5000/api/lista-reproduccion', {
+            const response = await fetch('/api/lista-reproduccion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

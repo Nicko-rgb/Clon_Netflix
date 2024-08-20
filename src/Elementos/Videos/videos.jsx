@@ -20,7 +20,7 @@ const Videos = () => {
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/videos/cinehub');
+                const response = await fetch('/api/videos/cinehub');
                 if (!response.ok) {
                     throw new Error('Error al obtener los videos');
                 }
@@ -43,7 +43,7 @@ const Videos = () => {
             const isFavorited = favorites.includes(videoId);
             if (isFavorited) {
                 // Si ya está en favoritos, eliminarlo
-                const response = await fetch(`http://localhost:5000/api/favorites/${userId}/${videoId}`, {
+                const response = await fetch(`/api/favorites/${userId}/${videoId}`, {
                     method: 'DELETE',
                 });
 
@@ -56,7 +56,7 @@ const Videos = () => {
                 setFavorites(prevFavorites => prevFavorites.filter(id => id !== videoId));
             } else {
                 // Si no está en favoritos, agregarlo
-                const response = await fetch('http://localhost:5000/api/favorites', {
+                const response = await fetch('/api/favorites', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const Videos = () => {
 
     const handleAddToPlaylist = async (video) => {
         try {
-            const response = await fetch('http://localhost:5000/api/lista-reproduccion', {
+            const response = await fetch('/api/lista-reproduccion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

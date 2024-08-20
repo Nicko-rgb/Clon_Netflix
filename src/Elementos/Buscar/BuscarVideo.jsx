@@ -22,7 +22,7 @@ const BuscarVideo = () => {
         const fetchSearchResults = async () => {
             const searchTerm = searchParams.get('q');
             try {
-                const response = await fetch(`http://localhost:5000/api/videos/search?q=${searchTerm}`);
+                const response = await fetch(`/api/videos/search?q=${searchTerm}`);
                 if (!response.ok) {
                     throw new Error('Error al obtener los resultados de búsqueda');
                 }
@@ -53,7 +53,7 @@ const BuscarVideo = () => {
         try {
             if (isFavorite) {
                 // Si ya está en favoritos, eliminarlo
-                const response = await fetch(`http://localhost:5000/api/favorites/${userId}/${video.id}`, {
+                const response = await fetch(`/api/favorites/${userId}/${video.id}`, {
                     method: 'DELETE',
                 });
 
@@ -66,7 +66,7 @@ const BuscarVideo = () => {
                 console.log(`Eliminado de favoritos: ${video.titulo}`);
             } else {
                 // Si no está en favoritos, agregarlo
-                const response = await fetch('http://localhost:5000/api/favorites', {
+                const response = await fetch('/api/favorites', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const BuscarVideo = () => {
     };
     const handleAddToPlaylist = async (video) => {
         try {
-            const response = await fetch('http://localhost:5000/api/lista-reproduccion', {
+            const response = await fetch('/api/lista-reproduccion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
